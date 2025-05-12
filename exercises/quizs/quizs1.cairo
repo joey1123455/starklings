@@ -4,9 +4,12 @@
 // Write a function that calculates the price of an order of apples given
 // the quantity bought. No hints this time!
 
-// I AM NOT DONE
-
-fn calculate_price_of_apples{
+fn calculate_price_of_apples(amount: u8) -> u8 {
+    let mut applePrice = 3;
+    if amount > 40 {
+        applePrice = 2;
+    }
+    return applePrice * amount;
 
 }
 
