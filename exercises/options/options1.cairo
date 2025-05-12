@@ -1,6 +1,4 @@
-
-
-// I AM NOT DONE
+use option::OptionTrait;
 
 // This function returns how much icecream there is left in the fridge.
 // If it's before 10PM, there's 5 pieces left. At 10PM, someone eats them
@@ -10,6 +8,13 @@ fn maybe_icecream(
 ) -> Option<usize> { // We use the 24-hour system here, so 10PM is a value of 22 and 12AM is a value of 0
 // The Option output should gracefully handle cases where time_of_day > 23.
 // TODO: Complete the function body - remember to return an Option!
+    let mut result = Option::None; 
+    if time_of_day < 22 {
+        result = Option::Some(5);
+    } else if time_of_day >= 22 && time_of_day < 24 {
+        result = Option::Some(0);
+    }
+    result
 }
 
 
@@ -26,5 +31,6 @@ fn check_icecream() {
 fn raw_value() {
     // TODO: Fix this test. How do you get at the value contained in the Option?
     let icecreams = maybe_icecream(12);
-    assert(icecreams == 5, 'err_6');
+    let i = icecreams.unwrap();
+    assert(i == 5, 'err_6');
 }
