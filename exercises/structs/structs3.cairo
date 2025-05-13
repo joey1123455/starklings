@@ -33,7 +33,6 @@ impl PackageImpl of PackageTrait {
 
     fn get_fees(ref self: Package, cents_per_gram: usize) -> usize {
         return self.weight_in_grams * cents_per_gram;
-        
     }
 }
 
