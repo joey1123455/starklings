@@ -11,8 +11,6 @@
 
 // No hints for this one!
 
-// I AM NOT DONE
-
 #[derive(Copy, Drop)]
 struct Cat {
     noise: felt252, 
@@ -29,9 +27,25 @@ trait AnimalTrait<T> {
 }
 
 impl CatImpl of AnimalTrait<Cat> { // TODO: implement the trait Animal for the type Cat
+    fn new() -> Cat {
+        return Cat { noise: 'meow' };
+    }
+
+    fn make_noise(self: Cat) -> felt252 {
+        return self.noise;
+    }
 }
 
 // TODO: implement the trait Animal for the type Cow
+impl CowImpl of AnimalTrait<Cow> {
+    fn new() -> Cow {
+        return Cow { noise: 'moo' };
+    }
+
+    fn make_noise(self: Cow) -> felt252 {
+        return self.noise;
+    }
+}
 
 #[test]
 fn test_traits2() {
